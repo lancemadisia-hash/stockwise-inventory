@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<p>Total stock value (cost basis): <strong>N$ {{ '%.2f' % total_value }}</strong></p>
+<table class="table table-striped">
+<thead><tr><th>SKU</th><th>Name</th><th>Qty</th><th>Cost</th><th>Selling</th><th>Actions</th></tr></thead>
+<tbody>
+{% for p in products %}
+<tr>
+  <td>{{ p['sku'] }}</td>
+  <td>{{ p['name'] }}</td>
+  <td>{{ p['quantity'] }}</td>
+  <td>N$ {{ '%.2f' % p['cost_price'] }}</td>
+  <td>N$ {{ '%.2f' % p['selling_price'] }}</td>
+  <td><a class="btn btn-sm btn-outline-primary" href="/product/{{p['id']}}/adjust">Adjust</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

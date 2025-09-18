@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Transactions</h2>
+<table class="table table-sm">
+<thead><tr><th>Time (UTC)</th><th>SKU</th><th>Product</th><th>Change</th><th>Note</th></tr></thead>
+<tbody>
+{% for t in transactions %}
+<tr>
+  <td>{{ t['timestamp'] }}</td>
+  <td>{{ t['sku'] }}</td>
+  <td>{{ t['product_name'] }}</td>
+  <td>{{ t['change_qty'] }}</td>
+  <td>{{ t['note'] }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
